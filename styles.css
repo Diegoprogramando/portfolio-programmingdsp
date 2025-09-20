@@ -1,0 +1,830 @@
+/* Variables CSS para los colores del logo */
+:root {
+  --color-dark-bg: #0a0a1f;
+  --color-light-text: #f0f0f0;
+  --color-primary-start: #00bfff; /* Azul claro/Cian */
+  --color-primary-end: #ff69b4; /* Rosa/Magenta */
+}
+
+/* Estilos globales */
+
+body {
+  padding-top: 90px; /* ajustalo según el alto real del navbar */
+}
+
+body {
+  font-family: "Roboto", sans-serif;
+  margin: 0;
+  padding: 0;
+  background-color: var(--color-dark-bg);
+  color: var(--color-light-text);
+  scroll-behavior: smooth;
+}
+
+.container {
+  max-width: 1200px; /* 🔹 limita el ancho en desktop */
+  margin: 0 auto; /* 🔹 centra horizontalmente */
+  padding: 0 15px; /* 🔹 espacio a los costados */
+}
+
+/* 🔹 Navbar y secciones dentro del contenedor */
+header,
+section,
+footer {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 15px;
+}
+
+/* 🔹 Ajuste para tablets y móviles */
+@media (max-width: 768px) {
+  .container,
+  header,
+  section,
+  footer {
+    max-width: 100%; /* 🔹 ocupa todo el ancho disponible */
+    padding: 0 10px; /* 🔹 menos padding para pantallas chicas */
+  }
+}
+
+/* ============================================== */
+/* Navbar */
+/* ============================================== */
+html {
+  scroll-behavior: smooth;
+}
+
+.logo-img {
+  width: 75px;
+  height: 75px;
+  border-radius: 50%;
+}
+
+.navbar {
+  width: 100%;
+  padding: 0.5rem 2rem;
+  box-sizing: border-box;
+  position: fixed; /* 🔹 fija el navbar arriba */
+  top: 0;
+  left: 50;
+  z-index: 1000; /* 🔹 se asegura de quedar encima del contenido */
+
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+}
+
+.navbar nav {
+  display: flex;
+  align-items: center;
+  justify-content: space-between; /* reparte logo a izq y links al centro */
+  max-width: 1200px;
+  margin: 0 auto; /* centra todo el contenido del nav */
+}
+
+.navbar .logo {
+  display: flex;
+  align-items: center;
+}
+.navbar .logo a {
+  font-size: 1.5rem;
+  font-weight: bold;
+  text-decoration: none;
+  background-image: linear-gradient(
+    to right,
+    var(--color-primary-start),
+    var(--color-primary-end)
+  );
+  -webkit-background-clip: text;
+  background-clip: text; /* Añadimos la propiedad estándar */
+  -webkit-text-fill-color: transparent;
+}
+
+.navbar .nav-links {
+  list-style: none;
+  display: flex;
+  gap: 2rem;
+  margin: 0 auto; /* centra horizontalmente */
+  padding: 0;
+}
+.navbar .nav-links a {
+  color: var(--color-light-text);
+  text-decoration: none;
+  font-weight: 700;
+  transition: color 0.3s ease;
+}
+
+.navbar .nav-links a:hover {
+  color: var(--color-primary-start);
+}
+
+.navbar .cta-button {
+  background-image: linear-gradient(
+    to right,
+    var(--color-primary-start),
+    var(--color-primary-end)
+  );
+  color: white;
+  padding: 0.7rem 1.5rem;
+  border-radius: 5px;
+  text-decoration: none;
+  font-weight: bold;
+  transition: transform 0.3s ease;
+}
+
+.navbar .cta-button:hover {
+  transform: scale(1.05);
+}
+
+/* Contenedor general para navbar y secciones */
+.navbar nav,
+.hero-section .hero-content {
+  max-width: 1200px; /* ancho máximo en desktop */
+  margin: 0 auto; /* centra horizontalmente */
+  padding: 0 20px; /* espacio a los lados */
+  box-sizing: border-box;
+}
+/* ============================================== */
+/* 🍔 Navbar Mobile (<= 768px) - CSS Puro FINAL */
+/* ============================================== */
+
+/* Aseguramos que el interruptor y el ícono estén ocultos en Desktop */
+.menu-toggle,
+.hamburger-icon {
+  display: none;
+}
+
+/* 💡 REGLA CLAVE: Resetear en Desktop */
+/* Si el menú quedó abierto en móvil, al pasar los 768px, el .nav-links DEBE */
+/* volver a su estado normal (display: flex) y el checkbox debe ser ignorado. */
+/* Esto ya se cumple con la estructura actual, pero se refuerza aquí: */
+@media (min-width: 769px) {
+  .navbar .nav-links {
+    display: flex !important; /* Asegura que los links aparezcan */
+    position: static;
+    height: auto;
+    opacity: 1;
+  }
+}
+
+@media (max-width: 768px) {
+  /* 💡 OCULTAR CTA Y LINKS Y POSICIONAR LA HAMBURGUESA */
+
+  /* 1. Ocultamos los links de navegación de escritorio */
+  .navbar .nav-links {
+    display: none;
+    margin: 0;
+    gap: 0;
+  }
+
+  .navbar nav {
+    /* ... otros estilos de nav ... */
+    position: relative; /* Esencial para que el z-index funcione en sus hijos */
+    z-index: 1001; /* Alto, pero menos que el logo */
+  }
+
+  /* 2. Ocultamos el botón "Hablemos" (cta-button) */
+  .navbar .cta-button {
+    display: none;
+  }
+
+  .navbar .cta-button,
+  .navbar .logo {
+    z-index: 1001; /* Aseguramos que el logo y el CTA se vean */
+  }
+
+  .navbar .logo {
+    display: block; /* Asegura que no se oculte */
+    z-index: 1002; /* Un z-index aún más alto */
+  }
+
+  /* 2. Mostramos y posicionamos el ícono de hamburguesa */
+  .hamburger-icon {
+    display: block;
+    cursor: pointer;
+    z-index: 1003;
+    font-size: 2.2rem;
+    margin-left: auto;
+    /* Quitamos el 'color: var(--color-light-text);' de aquí */
+  }
+
+  /* APLICAMOS EL DEGRADADO AL ICONO DE FONT AWESOME DENTRO DE LA ETIQUETA */
+  .hamburger-icon i {
+    background-image: linear-gradient(
+      to right,
+      var(--color-primary-start),
+      var(--color-primary-end)
+    );
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    color: transparent; /* fallback */
+  }
+
+  /* 4. Estilos para el Menú Desplegable (Overlay) */
+  .navbar .nav-links {
+    /* Configuración para el menú desplegable (Ocupa toda la vista) */
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 40vh;
+    background-color: rgba(10, 10, 31, 0.8); /* 80% opaco */
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+
+    /* Centrado solicitado */
+    flex-direction: column;
+    justify-content: center; /* Centra verticalmente */
+    align-items: center; /* Centra horizontalmente */
+
+    z-index: 1000;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    /* Inicialmente oculto, ya que display: none se aplica arriba */
+    /* Lo mantenemos oculto con opacity para la transición suave */
+    pointer-events: none; /* Deshabilita clics cuando no es visible */
+  }
+
+  /* 5. 💡 Lógica CSS Pura: Mostrar el menú cuando el checkbox está marcado */
+  /* Usamos el selector de hermano general (~) */
+  .menu-toggle:checked ~ .hamburger-icon ~ .nav-links {
+    display: flex; /* Muestra el menú */
+    opacity: 1; /* Lo hace visible (transición) */
+    pointer-events: auto; /* Habilita clics */
+  }
+
+  /* 6. Estilos de los links en el modo desplegado */
+  .navbar .nav-links li {
+    margin: 10px 0; /* Menos margen */
+    width: 100%;
+    text-align: center;
+  }
+
+  .navbar .nav-links a {
+    /* 💡 Font Size más chico, como solicitaste */
+    font-size: 1.2rem;
+    padding: 2px;
+    display: block;
+
+    /* Estilos de gradiente para destacar */
+    background-image: linear-gradient(
+      to right,
+      var(--color-primary-start),
+      var(--color-primary-end)
+    );
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+}
+
+/* ============================================== */
+/* Hero section */
+.hero-section {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  min-height: 100vh;
+  padding: 0 20px; /* espacio lateral */
+}
+
+.hero-content h1 {
+  color: #00bfff;
+  font-size: 3.5rem;
+  font-weight: 700;
+  background-image: linear-gradient(
+    to right,
+    var(--color-primary-start),
+    var(--color-primary-end)
+  );
+  -webkit-background-clip: text;
+  background-clip: text; /* Añadimos la propiedad estándar */
+  -webkit-text-fill-color: transparent;
+  margin-bottom: 0.5rem;
+}
+.hero-content p {
+  font-size: 1.2rem;
+  max-width: 600px;
+  margin: 0 auto 2rem;
+}
+
+.hero-buttons {
+  padding-top: 1.5rem; /* menos aire arriba de los botones */
+  margin-bottom: 1.5rem; /* menos aire debajo de los botones */
+}
+
+/* Botones hero (vertical en móviles) */
+@media (max-width: 768px) {
+  .hero-buttons {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    align-items: center;
+  }
+
+  .primary-button,
+  .secondary-button {
+    width: 100%;
+    max-width: 250px; /* no se estiren demasiado */
+    text-align: center;
+  }
+
+  .hero-content h1 {
+    font-size: 2rem;
+    color: #00bfff;
+  }
+
+  .hero-content p {
+    font-size: 1rem;
+  }
+}
+
+/* Navbar responsive (agregando espacio lateral) */
+@media (max-width: 768px) {
+  .navbar nav {
+    padding: 0 15px;
+  }
+
+  .nav-links {
+    right: 15px; /* ajusta posición del menú hamburguesa */
+  }
+}
+
+.primary-button,
+.secondary-button {
+  text-decoration: none;
+  padding: 1rem 2rem;
+  border-radius: 5px;
+  font-weight: bold;
+  transition: transform 0.3s ease;
+}
+.primary-button {
+  background-image: linear-gradient(
+    to right,
+    var(--color-primary-start),
+    var(--color-primary-end)
+  );
+  color: white;
+  margin-right: 1rem;
+  border-radius: 5px;
+  padding: 1rem 2rem;
+  font-weight: bold;
+  transition: all 0.3s ease; /* 👈 esto suaviza cualquier cambio */
+}
+
+.primary-button {
+  background-image: linear-gradient(
+    to right,
+    var(--color-primary-start),
+    var(--color-primary-end)
+  );
+  color: white;
+  margin-right: 1rem;
+}
+
+.primary-button:hover {
+  transform: scale(1.05);
+  background-image: linear-gradient(
+    to right,
+    var(--color-primary-end),
+    var(--color-primary-start)
+  ); /* 👈 invierte colores */
+  box-shadow: 0 0 15px rgba(0, 191, 255, 0.5); /* 👈 halo sutil */
+}
+
+.secondary-button {
+  background-image: linear-gradient(
+    to right,
+    var(--color-primary-start),
+    var(--color-primary-end)
+  );
+  color: white;
+  margin-right: 1rem;
+}
+
+.secondary-button:hover {
+  transform: scale(1.05);
+  background-image: linear-gradient(
+    to right,
+    var(--color-primary-end),
+    var(--color-primary-start)
+  ); /* 👈 invierte colores */
+  box-shadow: 0 0 15px rgba(0, 191, 255, 0.5); /* 👈 halo sutil */
+}
+
+/* ============================================== */
+/* Secciones de Contenido */
+/* ============================================== */
+section {
+  padding: 50px 5%; /* en vez de 80px para que las secciones estén más cerca */
+}
+
+section h2 {
+  font-size: 2.5rem;
+  text-align: center;
+  margin-bottom: 3rem;
+  color: #00bfff;
+}
+
+/* Sección "Sobre Mí" */
+/* ============================================== */
+.about-me-section {
+  margin-top: 0; /* elimina aire innecesario extra */
+  padding-top: 30px; /* control más fino arriba de esta sección */
+}
+
+.about-me-container {
+  display: flex;
+  flex-direction: column; /* Apila los elementos en móvil */
+  align-items: center;
+  gap: 2rem;
+  text-align: center;
+}
+
+.about-me-image img {
+  width: 200px; /* Tamaño fijo para la foto de perfil */
+  height: 200px;
+  object-fit: cover; /* Mantiene la proporción de la imagen */
+  border-radius: 50%; /* La hace circular */
+  border: 3px solid var(--color-primary-start); /* Borde para destacar */
+}
+
+/* Para pantallas más grandes */
+@media (min-width: 768px) {
+  .about-me-container {
+    flex-direction: row; /* Vuelve a ponerlos en fila */
+    text-align: left;
+    align-items: flex-start;
+    gap: 4rem;
+  }
+}
+
+/* Sección "Portafolio" */
+/* ============================================== */
+/* Sección "Portafolio" */
+.portfolio-grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px; /* espacio entre cards */
+  justify-content: center;
+}
+
+.portfolio-item {
+  width: 250px; /* 🔹 ancho fijo más chico */
+  padding: 20px;
+  background: #fff;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  text-align: center; /* 🔹 centra texto e imagen */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  border: 2px solid #00bfff; /* 🔹 borde sutil */
+}
+
+.portfolio-item img {
+  max-width: 100px; /* 🔹 imagen más chica */
+  height: auto;
+  margin-bottom: 15px;
+}
+
+.portfolio-item h3 {
+  margin: 10px 0;
+  font-size: 18px;
+}
+
+.em_p {
+  font-size: 14px;
+  line-height: 1.4;
+  color: #00bfff;
+}
+
+.rb_p {
+  font-size: 14px;
+  line-height: 1.4;
+  color: #ffffff;
+}
+
+.gf_p {
+  font-size: 14px;
+  line-height: 1.4;
+  color: #000000;
+}
+
+.portfolio-item a {
+  margin-top: auto; /* 🔹 el botón queda siempre abajo */
+  text-decoration: none;
+  padding: 8px 15px;
+  background: #0077ff;
+  color: #fff;
+  border-radius: 5px;
+  transition: background 0.3s;
+}
+
+.portfolio-item a:hover {
+  background: #005fcc;
+}
+
+.portfolio-item.rb_container_img {
+  background-color: #000;
+  color: #fff;
+  border: 2px solid #00bfff;
+}
+
+.portfolio-item.rb_container_img3 {
+  background-image: linear-gradient(
+    to right,
+
+    #2ecc71,
+    #f1c40f,
+    #e67e22,
+    #e74c3c /* rojo suave */
+  );
+  background-size: 400% 400%; /* 🔹 hace que se vea más suave */
+  animation: gradientBG 15s ease infinite; /* 🔹 animación opcional */
+  border: 2px solid #00bfff;
+}
+
+.rb_container_img4 {
+  background-image: url("./assets/imgiadiego.jpg");
+  background-size: cover; /* hace que ocupe todo el div */
+  background-position: center;
+  background-repeat: no-repeat;
+  width: 250px; /* mismo ancho que los otros */
+  height: 250px; /* altura fija para que se vea cuadrada */
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  border: 4px solid #ffffff; /* opcional para mantener estilo */
+}
+
+.rb_container_img5 {
+  background-image: url("./assets/imgialogo.jpg");
+  background-size: cover; /* hace que ocupe todo el div */
+  background-position: center;
+  background-repeat: no-repeat;
+  width: 250px; /* mismo ancho que los otros */
+  height: 250px; /* altura fija para que se vea cuadrada */
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  border: 3px solid #ffffff; /* opcional para mantener estilo */
+}
+
+.rb_container_img6 {
+  background-image: url("./assets/dspfondo.jpg");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-color: #000000; /* 🔹 Color de fondo negro */
+  width: 250px; /* mantiene el mismo ancho */
+  height: 250px; /* mantiene la altura cuadrada */
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  border: 4px solid #ffffff;
+}
+
+.em {
+  color: #00bfff;
+  font-weight: bold;
+}
+
+.rb {
+  color: #ffffff;
+  font-weight: bold;
+}
+
+.gf {
+  color: #ffffff;
+  font-weight: bold;
+}
+
+/* ============================================== */
+/* Sección "Servicios" */
+/* ============================================== */
+.services-container {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  max-width: 900px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.service-card {
+  background-color: rgba(255, 255, 255, 0.05);
+  padding: 2rem;
+  border-radius: 10px;
+  transition: transform 0.3s ease, background-color 0.3s ease;
+}
+
+.service-card h3 {
+  background-image: linear-gradient(
+    to right,
+    var(--color-primary-start),
+    var(--color-primary-end)
+  );
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  font-size: 1.8rem;
+  margin-top: 0;
+}
+
+.service-card:hover {
+  transform: translateY(-5px);
+  background-color: rgba(255, 255, 255, 0.1);
+}
+
+/* Para pantallas más grandes */
+@media (min-width: 768px) {
+  .services-container {
+    flex-direction: row;
+    justify-content: space-between;
+  }
+}
+
+/* ============================================== */
+/* Sección "Contacto" */
+/* ============================================== */
+.contact-section {
+  text-align: center;
+  padding-bottom: 50px;
+}
+
+.whatsapp-button {
+  display: inline-block;
+  background-image: linear-gradient(
+    to right,
+    #25d366,
+    #128c7e
+  ); /* Colores de WhatsApp */
+  color: white;
+  padding: 1rem 3rem;
+  border-radius: 50px;
+  font-weight: bold;
+  font-size: 1.1rem;
+  text-decoration: none;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  margin-bottom: 2rem;
+}
+
+.whatsapp-button:hover {
+  transform: scale(1.05);
+  box-shadow: 0 0 15px rgba(37, 211, 102, 0.5);
+}
+
+.social-links a {
+  color: var(--color-light-text);
+  text-decoration: none;
+  margin: 0 1rem;
+  font-size: 1.2rem;
+}
+
+/* ============================================== */
+/* Footer */
+/* ============================================== */
+.footer {
+  text-align: center;
+  padding: 2rem 0;
+  font-size: 0.9rem;
+  color: #00bfff;
+}
+
+.social-links {
+  display: flex;
+  flex-direction: column; /* texto arriba, íconos abajo */
+  align-items: center;
+  gap: 1rem; /* espacio entre texto e íconos */
+  margin-top: 2rem;
+}
+
+.social-links p {
+  font-size: 1rem; /* tamaño del texto */
+  color: #fff;
+  margin: 0;
+}
+
+/* Contenedor de los íconos en fila */
+.social-links .icons {
+  display: flex;
+  gap: 1.5rem; /* espacio entre cada ícono */
+}
+
+/* Íconos */
+.social-links .icons a {
+  font-size: 1.8rem; /* tamaño menor */
+  color: #fff;
+  transition: transform 0.3s, color 0.3s;
+}
+
+.social-links .icons a:hover {
+  transform: scale(1.2);
+}
+
+/* Colores de hover por red */
+.social-links .icons a .fa-github:hover {
+  color: #333;
+}
+
+.social-links .icons a .fa-linkedin:hover {
+  color: #0077b5;
+}
+
+.social-links .icons a .fa-instagram:hover {
+  color: #e1306c;
+}
+
+.fa-linkedin:hover {
+  color: #0e76a8; /* Azul típico de LinkedIn */
+}
+
+.fa-instagram:hover {
+  color: #e1306c; /* color oficial de Instagram */
+}
+
+.fa-github:hover {
+  color: #333; /* color de hover (gris oscuro estilo GitHub) */
+}
+
+/* ============================================== */
+/* ============================================== */
+/* Hero Responsive */
+/* ============================================== */
+@media (max-width: 768px) {
+  .hero-content h1 {
+    font-size: 2rem;
+  }
+
+  .hero-content p {
+    font-size: 1rem;
+  }
+
+  .hero-buttons {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+  }
+
+  .primary-button,
+  .secondary-button {
+    width: 100%;
+    text-align: center;
+  }
+}
+
+/* ============================================== */
+/* Services Responsive */
+/* ============================================== */
+@media (max-width: 768px) {
+  .services-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 1.5rem;
+  }
+
+  .service-card {
+    padding: 1.5rem;
+  }
+}
+
+/* ============================================== */
+/* Contenedor centrado global */
+/* ============================================== */
+section {
+  max-width: 1100px; /* ancho máximo */
+  margin: 0 auto; /* centra horizontalmente */
+}
+
+/* Ajustes específicos en "Sobre Mí" */
+@media (min-width: 768px) {
+  .about-me-container {
+    flex-direction: row;
+    text-align: left;
+    align-items: center; /* centrado vertical */
+    justify-content: center; /* centrado horizontal */
+    gap: 3rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .primary-button {
+    margin-right: 0; /* quita el margen lateral en vertical */
+  }
+}
+
+@media (max-width: 768px) {
+  .hero-buttons {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem; /* espacio vertical entre botones */
+    align-items: center; /* centra los botones horizontalmente */
+  }
+
+  .primary-button,
+  .secondary-button {
+    width: 100%;
+    max-width: 250px;
+    text-align: center;
+    margin: 0; /* asegura que no quede ningún margin lateral */
+  }
+}
