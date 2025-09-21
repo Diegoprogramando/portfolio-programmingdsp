@@ -451,6 +451,19 @@ section h2 {
   border: 3px solid var(--color-primary-start); /* Borde para destacar */
 }
 
+.about-me-text {
+  max-width: 800px;
+  margin: 0 auto;
+  font-size: 1.1rem;
+  line-height: 1.8;
+  color: #ddd; /* gris suave */
+  font-style: italic; /* toque personal */
+}
+
+.about-me-text p {
+  margin-bottom: 1.2rem; /* separación entre párrafos */
+}
+
 /* Para pantallas más grandes */
 @media (min-width: 768px) {
   .about-me-container {
