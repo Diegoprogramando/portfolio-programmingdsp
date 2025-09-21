@@ -59,10 +59,9 @@ html {
   height: 75px;
   border-radius: 50%;
 }
-
 .navbar {
   width: 100%;
-  padding: 0.5rem 2rem;
+  padding: 0.5rem;
   box-sizing: border-box;
   position: fixed; /* 🔹 fija el navbar arriba */
   top: 0;
@@ -84,6 +83,7 @@ html {
 .navbar .logo {
   display: flex;
   align-items: center;
+  margin-left: -2.5rem;
 }
 .navbar .logo a {
   font-size: 1.5rem;
@@ -203,8 +203,9 @@ html {
     cursor: pointer;
     z-index: 1003;
     font-size: 2.2rem;
-    margin-left: auto;
+    /*margin-left: auto;*/
     /* Quitamos el 'color: var(--color-light-text);' de aquí */
+    margin-right: 3.5rem; /* Esto lo mueve 2.5rem a la izquierda del borde. */
   }
 
   /* APLICAMOS EL DEGRADADO AL ICONO DE FONT AWESOME DENTRO DE LA ETIQUETA */
