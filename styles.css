@@ -603,6 +603,42 @@ section h2 {
   border: 4px solid #ffffff;
 }
 
+.rb_container_img7 {
+  background-image: url("./assets/diegoIA.png");
+  background-size: cover; /* hace que ocupe todo el div */
+  background-position: center;
+  background-repeat: no-repeat;
+  width: 250px; /* mismo ancho que los otros */
+  height: 250px; /* altura fija para que se vea cuadrada */
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  border: 4px solid #ffffff; /* opcional para mantener estilo */
+}
+
+.rb_container_img8 {
+  background-image: url("./assets/DiegoBajoAgua.png");
+  background-size: cover; /* hace que ocupe todo el div */
+  background-position: center;
+  background-repeat: no-repeat;
+  width: 250px; /* mismo ancho que los otros */
+  height: 250px; /* altura fija para que se vea cuadrada */
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  border: 4px solid #ffffff; /* opcional para mantener estilo */
+}
+
+.rb_container_img9 {
+  background-image: url("./assets/imgDiego.jpg");
+  background-size: cover; /* hace que ocupe todo el div */
+  background-position: center;
+  background-repeat: no-repeat;
+  width: 250px; /* mismo ancho que los otros */
+  height: 250px; /* altura fija para que se vea cuadrada */
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  border: 4px solid #ffffff; /* opcional para mantener estilo */
+}
+
 .em {
   color: #00bfff;
   font-weight: bold;
