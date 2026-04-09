@@ -628,7 +628,9 @@ section h2 {
   background-color: rgba(255, 255, 255, 0.05);
   padding: 2rem;
   border-radius: 10px;
-  transition: transform 0.3s ease, background-color 0.3s ease;
+  transition:
+    transform 0.3s ease,
+    background-color 0.3s ease;
 }
 
 .service-card h3 {
@@ -678,7 +680,9 @@ section h2 {
   font-weight: bold;
   font-size: 1.1rem;
   text-decoration: none;
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  transition:
+    transform 0.3s ease,
+    box-shadow 0.3s ease;
   margin-bottom: 2rem;
 }
 
@@ -728,7 +732,9 @@ section h2 {
 .social-links .icons a {
   font-size: 1.8rem; /* tamaño menor */
   color: #fff;
-  transition: transform 0.3s, color 0.3s;
+  transition:
+    transform 0.3s,
+    color 0.3s;
 }
 
 .social-links .icons a:hover {
