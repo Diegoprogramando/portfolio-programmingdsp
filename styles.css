@@ -526,6 +526,12 @@ section h2 {
   color: #000000;
 }
 
+.cp_p {
+  font-size: 14px;
+  line-height: 1.4;
+  color: #ffffff;
+}
+
 .portfolio-item a {
   margin-top: auto; /* 🔹 el botón queda siempre abajo */
   text-decoration: none;
@@ -608,6 +614,11 @@ section h2 {
 }
 
 .gf {
+  color: #ffffff;
+  font-weight: bold;
+}
+
+.cp {
   color: #ffffff;
   font-weight: bold;
 }
